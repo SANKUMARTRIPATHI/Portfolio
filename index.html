@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>San Kumar Tripathi — Aspiring AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    --bg:#12130F;
+    --surface:#1B1C16;
+    --text:#EDE9DE;
+    --muted:#9C9686;
+    --clay:#B5651D;
+    --leaf:#7A9B6E;
+    --line:#33342B;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:inherit; margin:0; padding:0;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+  html,body{height:auto;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--leaf); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--clay); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* HERO */
+  header.hero{
+    padding:80px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{display:flex; flex-direction:column; gap:18px;}
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.4rem, 7vw, 3.6rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--clay);
+    font-size:0.95rem;
+  }
+  .summary{max-width:60ch; color:var(--muted); font-size:1.02rem;}
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:16px 24px; margin-top:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.85rem;
+  }
+  .contact-row a{color:var(--text); border-bottom:1px solid var(--line);}
+  .contact-row a:hover{border-color:var(--leaf); text-decoration:none; color:var(--leaf);}
+
+  section{padding:52px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.5rem;
+    margin-bottom:24px;
+  }
+
+  /* SKILLS */
+  .skill-group{margin-bottom:18px;}
+  .skill-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    padding:4px 10px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--text);
+    background:var(--surface);
+  }
+
+  /* EXPERIENCE */
+  .entry{position:relative; padding-left:24px; margin-bottom:32px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry::before{
+    content:"";
+    position:absolute; left:0; top:6px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--leaf);
+  }
+  .entry-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px 16px; align-items:baseline;}
+  .entry-title{font-weight:500; font-size:1.05rem;}
+  .entry-org{color:var(--clay);}
+  .entry-date{font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--muted); white-space:nowrap;}
+  .entry ul{margin:10px 0 0 18px; color:var(--muted); font-size:0.95rem;}
+  .entry li{margin-bottom:4px;}
+
+  /* PROJECTS */
+  .project{
+    border:1px solid var(--line);
+    background:var(--surface);
+    padding:20px 22px;
+    border-radius:4px;
+    margin-bottom:16px;
+  }
+  .project:last-child{margin-bottom:0;}
+  .project-title{font-weight:500; font-size:1.05rem; margin-bottom:4px;}
+  .project-stack{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--leaf); margin-bottom:10px;}
+  .project ul{margin-left:18px; color:var(--muted); font-size:0.95rem;}
+  .project li{margin-bottom:4px;}
+
+  /* EDUCATION / CERTS */
+  .edu-row{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:10px 0; border-bottom:1px dashed var(--line);}
+  .edu-row:last-child{border-bottom:none;}
+  .edu-name{font-weight:500;}
+  .edu-sub{color:var(--muted); font-size:0.9rem;}
+  .edu-meta{font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--muted); text-align:right;}
+
+  .cert-list{list-style:none; font-size:0.95rem;}
+  .cert-list li{padding:8px 0; border-bottom:1px dashed var(--line); color:var(--muted);}
+  .cert-list li:last-child{border-bottom:none;}
+  .cert-list strong{color:var(--text); font-weight:500;}
+
+  footer{padding:48px 0 64px; text-align:left;}
+  footer .role{margin-bottom:10px; display:block;}
+  footer p{color:var(--muted); font-size:0.9rem;}
+
+  @media (min-width:600px){
+    .entry{padding-left:28px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="role">Aspiring AI Engineer · Backend &amp; MERN Developer</span>
+      <h1>San Kumar Tripathi</h1>
+      <p class="summary">Computer Science undergraduate (B.Tech, 2026) building backend systems and REST APIs with Node.js and Express, with hands-on machine learning work in scikit-learn and a growing interest in self-hosted LLMs, RAG, and AI agents.</p>
+      <div class="contact-row">
+        <a href="mailto:santripathi214@gmail.com">santripathi214@gmail.com</a>
+        <a href="tel:+916386131059">+91-6386131059</a>
+        <a href="https://linkedin.com/in/san-kumar-tripathi-836673285" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/SANKUMARTRIPATHI" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <div class="skill-label">AI / MACHINE LEARNING</div>
+      <div class="tag-row">
+        <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Decision Tree</span>
+        <span class="tag">Random Forest</span><span class="tag">KNN</span><span class="tag">Hyperparameter Tuning</span>
+        <span class="tag">Prompt Engineering</span><span class="tag">LLM Fundamentals</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">BACKEND &amp; APIS</div>
+      <div class="tag-row">
+        <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">REST APIs</span>
+        <span class="tag">CRUD</span><span class="tag">Middleware</span><span class="tag">React.js</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">DATABASES &amp; TOOLS</div>
+      <div class="tag-row">
+        <span class="tag">MongoDB</span><span class="tag">Mongoose</span><span class="tag">MySQL</span>
+        <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">LANGUAGES &amp; CORE CONCEPTS</div>
+      <div class="tag-row">
+        <span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">C</span>
+        <span class="tag">DSA</span><span class="tag">OOP</span><span class="tag">Computer Networks</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">MERN Full Stack Developer Intern <span class="entry-org">— Vital Skills, Techkriti (IIT Kanpur)</span></span>
+        <span class="entry-date">Aug – Oct 2024</span>
+      </div>
+      <ul>
+        <li>Built RESTful APIs for CRUD operations using Node.js, Express.js and MongoDB.</li>
+        <li>Developed responsive interfaces with React.js, HTML and CSS, using Git and GitHub for version control.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Core Java Intern <span class="entry-org">— United Global Infoservice Pvt. Ltd.</span></span>
+        <span class="entry-date">Aug – Oct 2023</span>
+      </div>
+      <ul>
+        <li>Built a Java command-line app to manage car records using OOP and the Collections framework.</li>
+        <li>Implemented CRUD operations with a menu-driven interface via the Scanner class.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <div class="project-title">Crop Recommendation System</div>
+      <div class="project-stack">Python · scikit-learn · Machine Learning</div>
+      <ul>
+        <li>Built a supervised ML pipeline predicting the optimal crop from soil and climate features (N, P, K, temperature, humidity, pH, rainfall).</li>
+        <li>Implemented and benchmarked Decision Tree, Random Forest and KNN classifiers.</li>
+        <li>Applied hyperparameter tuning and model evaluation to compare prediction accuracy.</li>
+      </ul>
+      <a href="https://claude.ai/artifact/CaK9T5wB813kSvf4GupvXk" target="_blank" rel="noopener" style="display:inline-block; margin-top:12px; font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--leaf);">View live demo →</a>
+    </div>
+    <div class="project">
+      <div class="project-title">Paper Vault — Document Management System</div>
+      <div class="project-stack">MongoDB · Express.js · React.js · Node.js</div>
+      <ul>
+        <li>Built a full-stack MERN app for secure, scalable document storage with a RESTful API and Mongoose schema modeling.</li>
+        <li>Developed CRUD endpoints with Express middleware for validation and error handling.</li>
+        <li>Created a responsive React interface, managed with Git and GitHub.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">B.Tech, Computer Science &amp; Engineering</div>
+        <div class="edu-sub">United College of Engineering and Research, Allahabad</div>
+      </div>
+      <div class="edu-meta">2022 – 2026<br>CGPA 7.69</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">Class XII, CBSE</div>
+        <div class="edu-sub">Kendriya Vidyalaya ITI Naini, Allahabad</div>
+      </div>
+      <div class="edu-meta">2021<br>77%</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">Class X, CBSE</div>
+        <div class="edu-sub">Green Fields Academy, Allahabad</div>
+      </div>
+      <div class="edu-meta">2019<br>85%</div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul class="cert-list">
+      <li><strong>Foundations of Prompt Engineering</strong> — AWS</li>
+      <li><strong>MERN Full Stack Web Developer</strong> — Techkriti, IIT Kanpur</li>
+      <li><strong>DevSecOps Basic Course</strong> — NIELIT</li>
+      <li><strong>Network Security Engineer</strong> — NSDC</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span class="role">Let's connect</span>
+    <p><a href="mailto:santripathi214@gmail.com">santripathi214@gmail.com</a> · <a href="tel:+916386131059">+91-6386131059</a></p>
+  </footer>
+</div>
+
+</body>
+</html>
